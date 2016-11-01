@@ -1,0 +1,5 @@
+*.pyc
+alembic/versions
+onevone/static/images/
+onevone/www/
+install_private.sh

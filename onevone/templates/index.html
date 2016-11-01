@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block title %}Onevone{% endblock %}
+
+{% block body %}
+<div class="block-container">
+	<div class="search-matchup block">
+	    <h2 class="titular">I AM PLAYING</h2>
+	    <div class="input-container">
+	    	<input class="autocompleted text-input" type="text" id="champion" placeholder="Your champion" autocomplete="off">
+	    	<div class="autocomplete-container champion">
+	    		<div class="autocomplete-results"></div>
+	    	</div>
+	    </div>
+	    <h2 class="titular">AGAINST</h2>
+	    <div class="input-container">
+	    	<input class="autocompleted text-input" type="text" id="enemy" placeholder="Enemy champion" autocomplete="off">
+	    	<div class="autocomplete-container enemy">
+	    		<div class="autocomplete-results"></div>
+	    	</div>
+	    </div>
+	    <a class="find button" id="find-matchup">SHOW ME</a>
+	</div>
+</div>
+<script type="text/javascript" src="{{url_for('static', filename='js/app.min.js')}}" async></script>
+{% endblock %}
+

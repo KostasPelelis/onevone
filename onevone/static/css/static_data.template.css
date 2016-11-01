@@ -1,0 +1,45 @@
+.big[class*="-icon"] {
+    width: 64px;
+    height: 64px;
+}
+
+.small[class*="-icon"] {
+    width: 32px;
+    height: 32px;
+}
+
+.champion-icon.small {
+    background-image: url('/static/images/champion_sprite.small.png')	
+}
+
+
+.mastery-icon.big{
+    background-image: url('/static/images/mastery_sprite.png')
+}
+
+.mastery-icon.grey {
+	background-image: url('/static/images/mastery_sprite_grey.png')
+}
+
+.rune-icon.big {
+	background-image: url('/static/images/rune_sprite.png')
+}
+
+.summoner-icon.big {
+	background-image: url('/static/images/spell_sprite.png')
+}
+
+.item-icon.big {
+	background-image: url('/static/images/item_sprite.png')
+}
+
+.champion-icon.big {
+    background-image: url('/static/images/champion_sprite.png') 
+}
+
+{% for model_name, model_items in data.items() %}
+{% for item in model_items %}
+.{{model_name[0]}}{{item.id}}.big{background-position: {{item.xoffset_big}}px {{item.yoffset_big}}px;}
+.{{model_name[0]}}{{item.id}}.small{background-position: {{item.xoffset_small}}px {{item.yoffset_small}}px;}
+{% endfor %}
+{% endfor%}

@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block title %}About{% endblock %}
+{% block body %}
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/about.min.css')}}">
+<div class="container">
+  <h1>FAQ</h1>
+  <h2>What is onevone.eu?</h2>
+  <p>Onevone is a web application meant to help unexperienced players with matchus in League of Legends. It uses information from high elo players(Challenger/Masters), pulled directly from <a href="#">RIOT's API</a></p>
+
+  <h2>How can onevone help me beat that one-trick-pony Heimerdinger?</h2>
+  <p>This website is meant to suggest item builds, masteries etc. Counter tips are not yet enabled so win the actual matchup will take some experience</p>
+
+  <h2>What kind of data do you provide?</h2>
+  <p>If you search for a matchup you will see that we are listing the data such as masteries, runes, item builds, summoner spells, spell upgrade order and last but not least match average statistics. That provides an overall images of the matchup, in terms of difficulty but also the optimal build path in order to increase your chances of wining</p>
+
+  <h2>Is onevone Open Source?</h2>
+  <p>Of course! We love Open Source software and we thrive for your humble opinion about its quality. The project can be found in the public <a href="#">Github repository</a></p>
+
+  <h2>How can I contribute to onevone?</h2>
+  <p>At the moment I am the only maintainer of the project so any help would be more than welcome. If you know how to use git, open a pull request and after it is reviewed your code will be merged into the application. If you don't know how to code, but you have a killer idea make sure to <a href="#">open an issue</a> on the repository page.</p>
+
+  <h2>What kind of technologies do you use?</h2>
+  <p>The server is written in Python using the Flask framework. The storage is a combination of a Postgres database for persistent data and a Redis KVS for caching data. The frontend is mostly HTML5/CSS with a splash of jQuery. Since I am not a graphic designer myself you will notice some <strike>bugs</strike> features in the UI that are WIP.</p>
+</div>
+
+{% endblock %}

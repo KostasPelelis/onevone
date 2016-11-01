@@ -1,0 +1,228 @@
+/* OVERVIEW */
+
+.overview-container{
+	color: white;
+	height: 560px;
+}
+
+.column-left {
+	width: 50%;
+    float: left;
+}
+
+.column-right {
+	width: 50%;
+    float: right;
+}
+
+.clear {
+    clear: both;
+}
+
+[class^="column-"] {
+    padding: 25px;
+}
+
+.column-right > img {
+    float: right;
+}
+
+.column-left > img {
+    float: left;
+}
+
+.container {
+    margin-bottom: 25px;
+    background: #394264;
+    border-radius: 5px;
+}
+
+.container.overview {
+    margin-top: 25px;
+}
+
+.container .titular {
+    background: #11a8ab;
+}
+
+/* MASTERIES */
+.mastery-container {
+	border-right: none!important;
+    position: relative;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.mastery-branch {
+	display: inline-block;
+    cursor: default;
+    position: relative;
+    padding: 10px;
+    background-size: 120%;
+    border: 1px solid #373b42;
+    margin-left: 10px;
+}
+
+.branch-header {
+	font-weight: 700;
+	font-size: 1.1em;
+	text-align: center;
+    color: white;
+}
+
+.mastery-level {
+	display: table;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.mastery {
+	margin: 3px;
+    border: 1px solid grey;
+    display: block;
+    background-size: initial;
+    position: relative;
+    float: left;
+}
+
+.mastery-points {
+	display: block;
+	width: 100%;
+	height: 8px;
+	padding: 0;
+	margin: 0;
+	background-color: rgba(0,0,0,.83);
+	position: absolute;
+	bottom: 0;
+}
+
+.mastery-point {
+	display: block;
+    position: relative;
+    background-color: #ff0;
+    width: 4px;
+    height: 4px;
+    margin-left: 3px;
+    top: 3px;
+    float: left;
+}
+
+/* RUNES, MASTERIES */
+.rune-container, .summoner-container, .item-container {
+	border-right: none!important;
+    margin: 0 auto;
+    position: relative;
+    display: block;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.rune-container {
+    display: inline;
+}
+
+.rune, .summoner, .item {
+	margin: 3px;
+    margin-left: 10px;
+    display: inline-block;
+    background-size: initial;
+    position: relative;
+    cursor: default;
+    padding: 10px;
+    text-align: center;
+}
+
+.summoner > [class*="-icon"] {
+    display: block;
+    margin: 0 auto;
+}
+
+.summoner > p, .rune > p, .item > p {
+    margin-top: 5px;
+}
+
+[class*="-icon"] {
+	position: relative;
+	display: inline-block;
+}
+
+[class*="-icon"] .tooltip {
+	visibility: hidden;
+	border: 3px solid rgba(158, 122, 46, 0.45);
+	background-color: rgba(35, 32, 32, 0.88);
+	padding-top: 2%;
+	position: absolute;
+	text-align: center;
+	width: 400px;
+	top: 64px;
+	left: 64px;
+	z-index: 1;
+}
+
+[class*="-icon"]:hover .tooltip {
+	visibility: visible;
+}
+
+.tooltip-name {
+    font-size: 1.1em;
+    font-weight: 300;
+    margin-top: 0.5em;
+    color: #f1c40f;
+}
+
+.tooltip-info {
+	margin-top: 0.5em;
+    color: white;
+	margin-bottom: 0.5em;
+}
+
+.tooltip-info > span.active {
+    color: #f1c40f;
+}
+
+/* ITEM CSS */
+active, unique {
+	font-style: bold;
+}
+
+table, td, th {
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table {
+    table-layout: fixed;
+    background: white;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 15px;
+}
+
+tbody > tr:hover {
+    background: #c9c9c9;
+}
+
+td.spell-cell {
+    padding: 3px;
+}
+
+td.spell-cell .point {
+    display: block;
+    position: relative;
+    background-color: #ff0;
+    width: 25px;
+    height: 25px;
+    margin: 0 auto;
+    box-shadow: 1px 1px 1px #888888;
+    border-radius: 5px;
+}
+
+.fb-share-button {
+    width: 50%;
+    margin: 0 auto;
+}

@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block title %}Page Not Found{% endblock %}
+{% block body %}
+<div class="notfound-container">
+	<h1><i>A wanderer isn't always lost</i></h1>
+	<h2><i>Yasuo</i></h2>
+	<img src="http://nate-whs-2015.weebly.com/uploads/3/8/6/7/38673665/2643676_orig.jpg" class="box-image">
+	<p>What you were looking for is just not there.
+	<p><a href="{{ url_for('index') }}">go somewhere nice</a>
+</div>
+{% endblock %}

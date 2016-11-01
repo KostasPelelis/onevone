@@ -1,0 +1,204 @@
+{% extends "layout.html" %}
+
+{% block title %}{{champion.name}} vs {{enemy.name}}{% endblock %}
+
+{% block extra_meta %}
+<meta property="og:url" content="http://www.onevone.eu/matchup/{{champion.name}}/{{enemy.name}}"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="{{champion.name}} VS {{enemy.name}}" />
+<meta property="og:description" content="See the latest results about matchups" />
+
+{% endblock %}
+
+{% block body %}
+<h2>Showing results for patch {{patch_version}}</h2>
+<h2>You can see previous patch results for patches</h2>
+
+{% for version in versions %}
+<a href="/matchup/{{champion.name}}/{{enemy.name}}?patch_version={{version}}">{{version}}</a><span> | </span> 
+{% endfor %}
+
+<div class="container overview">
+	<h2 class="titular">{{champion.name}} vs {{enemy.name}}</h2>
+	<div class="column-left">
+		<img src="/static/images/champion-splash/{{champion.splash_blob}}">
+	</div>
+	<div class="column-right">
+		<img src="/static/images/champion-splash/{{enemy.splash_blob}}">
+	</div>
+	<div class="clear">
+	</div>
+</div>
+
+<div class="container">
+	<h2 class="titular">Matchup Average Statistics</h2>
+	<table>
+		<thead>
+			<tr>
+				<th>Metric</th>
+				<th>Value</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Games Analyzed</td>
+				<td>{{ stats.total_games }}</td>
+			</tr>
+			<tr>
+				<td>Win Rate</td>
+				<td>{{ '%.2f' % stats.win_rate }}</td>
+			</tr>
+			<tr>
+				<td>Kills</td>
+				<td>{{ stats.kills }}</td>
+			</tr>
+			<tr>
+				<td>Deaths</td>
+				<td>{{ stats.deaths }}</td>
+			</tr>
+			<tr>
+				<td>Assists</td>
+				<td>{{ stats.assists }}</td>
+			</tr>
+			<tr>
+				<td>Duration</td>
+				<td>{{ stats.duration }}</td>
+			</tr>
+			<tr>
+				<td>Damage Dealt</td>
+				<td>{{ stats.damage_dealt }}</td>
+			</tr>
+			<tr>
+				<td>Creeps/10 min</td>
+				<td>{{ stats.creep_score }}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="container">
+	<h2 class="titular">Suggested Spell Order</h2>
+	<table class="spell-timeline">
+	<thead>
+		<tr>
+		<td class="empty-cell"></td>
+		{% for level in range(1,19) %}
+			<td>{{level}}</td>
+		{% endfor %}
+		</tr>
+	</thead>
+	<tbody>		
+		{% for spell_data in spell_timeline %}
+		<tr>
+			<td class="spell-name">{{spell_data.spell_name}}</td>
+			{% for spell_cell in spell_data.spell_row %}
+				{% if spell_cell %}
+					<td class="spell-cell"><div class="point"></div></td>
+				{% else %}
+					<td class="spell-cell"></td>
+				{% endif %}
+			{% endfor %}
+		</tr>
+		{% endfor %}
+	</tbody>
+	</table>
+</div>
+
+<div class="container">
+	<h2 class="titular">Suggested Summoners</h2>
+ 	<div class="summoner-container">
+		{% for summoner in summoners %}
+        	<div class="summoner">
+        		<div class="summoner-icon big s{{summoner.id}}">	        			
+	        		<div class="tooltip">
+						<div class="tooltip-name">{{summoner.name}}<br> </div>
+						<div class="tooltip-info">{{summoner.description}}</div>
+					</div>  
+        		</div>
+        		<p>{{summoner.name}}</p>
+        	</div>
+       	{% endfor %}
+	</div>
+</div>
+
+<div class="container">
+	<h2 class="titular">Suggested Masteries</h2>
+    <div class="mastery-container">
+		{% for branch in mastery_tree -%}
+			<div class="mastery-branch {{ branch.name }}">
+				<div class="branch-header">{{branch.name}}</div>
+				{% for level in branch.data -%}
+				<div class="mastery-level">
+					{% for mastery in level -%}
+						<div class="mastery">
+						{% if mastery -%}
+							<div class="mastery-icon m{{mastery.id}} {%if not mastery.points-%}grey{%- endif %} big">
+								<div class="mastery-points">
+								{% for _ in range(0, mastery.points) -%} 
+									<div class="mastery-point">
+									</div>
+								{%- endfor %}
+								</div>
+								<div class="tooltip">
+									<div class="tooltip-name">{{mastery.name}}<br> </div>
+									<div class="tooltip-info">
+									{% if mastery.description is sequence %}
+										{% for descr in mastery.description %}
+										<span {% if loop.index == mastery.points %}class="active"{% endif %}>{{descr}}</span><br>
+										{% endfor %}
+									{% else %}
+										<span class="active">{{mastery.description}}</span><br>
+									{% endif %}
+									</div>
+								</div>
+							</div>
+						{% else %}
+							<div class="empty-icon big"></div>
+						{%- endif %}
+						</div>
+					{%- endfor %}
+				</div>			
+				{%- endfor %}
+			</div>
+		{%- endfor %}
+	</div>					
+</div>
+
+<div class="container">
+	<h2 class="titular">Suggested Runes</h2>
+	<div class="rune-container">
+		{% for rune in runes %}
+        	<div class="rune">
+        		<div class="rune-icon big r{{rune.id}}">
+	        		<div class="tooltip">
+						<div class="tooltip-name">{{rune.name}}<br> </div>
+						<div class="tooltip-info">{{rune.description}}</div>
+					</div> 
+        		</div>
+        		<span>{{rune.name}}</span>
+        		<p>x {{rune.points}}</p>
+        	</div>
+        	<br>
+		{% endfor %}
+	</div>
+</div>
+
+<div class="container">
+	<h2 class="titular">Suggested Items</h2>
+	<div class="item-container">
+		{% for item, cnt in items %}
+        	<div class="item">
+                <div class="item-icon big i{{item.id}}">
+	        		<div class="tooltip">
+						<div class="tooltip-name">{{item.name}}<br> </div>
+						<div class="tooltip-info">{{item.description|safe}}</div>
+					</div> 
+        		</div>
+        		<p>{% if cnt > 0 %}x {{cnt + 1}}{% endif %}&#8203;</p>
+        	</div>
+		{% endfor %}
+	</div>
+</div>
+
+{% endblock %}
+

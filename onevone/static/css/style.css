@@ -1,0 +1,263 @@
+@import 'static_data.css';
+@import 'matchup.css';
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:400,700);
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;  
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+    background: #1f253d;
+    font-family: 'Ubuntu', sans-serif;
+    max-width: 768px;
+    margin: 0 auto;
+}
+
+.body-wrapper {
+    min-height: 100%;
+    margin: 0 auto -100px;
+}
+
+footer, .push {
+    height: 100px;
+    color: white;
+    width: 100%;
+    font-size: 12px;
+    text-align: center;
+}
+
+
+a {
+    text-decoration: none;
+    font-size: 15px;
+}
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+a, span{
+    color: #fff;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding-left: 0;
+}
+
+header {
+        height: 80px;
+    }
+        .header-menu {
+            font-size: 17px;
+            line-height: 80px;
+        }
+            .header-menu li {
+                position: relative;
+                -webkit-transform: translateZ(0); /** To avoid a flash when hover messages **/
+            }
+                .header-menu-tab {
+                    padding: 0 27px;
+                    display: block;
+                    line-height: 74px;
+                    font-size: 17px;
+                    -webkit-transition: background .3s;
+                    transition: background .3s;
+                }
+                    .header-menu-tab:hover {
+                        background: #50597b;
+                        border-bottom: 4px solid #11a8ab;
+                        text-decoration: none;
+                    }
+
+.system-info {
+    float: right;
+    padding-right: 20px;
+    font-size: 17px;
+}
+    .system-info h2 {
+        font-size: 17px;
+        display: inline-block;
+        line-height: 76px;
+        margin: 0;
+        padding-right: 10px;
+    }
+
+.block {
+    margin-bottom: 25px;
+    background: #394264;
+    border-radius: 5px;
+}
+
+.horizontal-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+    .horizontal-list li {
+        float: left;
+    }
+
+.block-container {
+    float: left;
+    width: 100%;
+    padding: 10%;
+}
+
+.search-matchup {
+    height: 400px;
+}
+
+.search-matchup .titular {
+    padding-top: 10px;
+}
+.find.button {
+    background: #11a8ab;
+    margin-top: 50px;
+}
+.find.button:hover {
+    background: #0F9295;
+    cursor: pointer;
+}
+
+h2 {
+    font-size: 17px;
+}
+
+h1, h2, p, a, span{
+    color: #fff;
+}
+
+.button {
+    display: block;
+    width: 175px;
+    line-height: 50px;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 5px;
+    -webkit-transition: background .3s;
+    transition: background .3s;
+}
+    .button:hover {
+        text-decoration: none;
+    }
+
+.input-container {
+    position: relative;
+}
+    input[type=text]{
+        width: 400px;
+        height: 70px;
+        margin-left: 20px;
+        margin-bottom: 20px;
+        padding-left: 45px;
+        background: #50597b;
+        color: #fff;
+        border: solid 1px #1f253d;
+        border-radius: 5px;     
+        display: block;
+        margin: 0 auto;
+        font-size: 16px;
+        font-family: 'Ubuntu';
+    }
+        input[type=text]::-webkit-input-placeholder { /* WebKit browsers */
+            color: #fff;            
+        }
+        input[type=text]:-moz-input-placeholder { /* Mozilla Firefox 4 to 18 */
+            color: #fff;       
+        }
+        input[type=text]::-moz-input-placeholder { /* Mozilla Firefox 19+ */
+            color: #fff;
+        }
+        input[type=text]:-ms-input-placeholder { /* Internet Explorer 10+ */
+            color: #fff;        
+        }
+        input[type=text]:focus {
+            outline: none; /* removes the default orange border when focus */
+            border: 1px solid #11a8ab;
+        }
+
+.titular {
+    display: block;
+    line-height: 60px;
+    margin: 0;
+    text-align: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+/* Autocomplete */
+.autocomplete-container {
+    position: absolute;
+    left: 50%;
+    z-index: 3;
+}
+
+.autocomplete-container.enemy {
+    z-index: 2;
+}
+
+.autocomplete-results {
+    border-bottom: 1px solid #f00;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    font-weight: 400;
+    display: table;
+    width: 400px;
+    position: relative;
+    height: 0px;
+    left: -50%;
+}
+
+.autocomplete-item {
+    background: #fff;
+    cursor: pointer;
+    overflow: hidden;
+    border-bottom: 1px solid #eee;
+    color: black;
+    width: 100%;
+    display: block;
+    padding: 0;
+    height: 64px;
+    vertical-align: top;
+}
+
+.autocomplete-item span {
+    font-size: 180%;
+    height: 100%;
+    margin-left: 10px;
+    color: #111;
+    display: inline-block;
+    position: relative;
+    transform: translateY(50%);
+    padding: 0 0 0 16px;
+    height: auto;
+    margin-left: 0;
+}
+
+.autocomplete-item.selected {
+    background-color: #3498db;
+    opacity: 1;
+}
+
+.autocomplete-item.selected span{
+    color: white;
+}
+
+.autocomplete-item div {
+    float: left;
+}
+
+/* End Autocomplete */
+
+.notfound-container {
+    width: 60%;
+    margin: 0 auto;
+}
