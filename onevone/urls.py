@@ -24,11 +24,10 @@ register_api(RunesAPI, 'rune_api', '/runes/', pk='id', pk_type='int')
 register_api(ItemsAPI, 'items_api', '/items/', pk='id', pk_type='int')
 register_api(SummonerSpellAPI,
              'summoners_api', '/summoners/', pk='id', pk_type='int')
-
-# Generic routes
-
 app.add_url_rule('/api/v0/matchup/<int:champion>/<int:enemy>',
                  view_func=MatchupAPI.as_view('matchup_api'), methods=['GET'])
+
+# Generic routes
 
 app.add_url_rule('/', view_func=Index.as_view('index'), methods=['GET'])
 app.add_url_rule('/about', view_func=About.as_view('about'), methods=['GET'])

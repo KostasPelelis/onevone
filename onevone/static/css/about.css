@@ -2,3 +2,7 @@ p {
   margin-top: 13px;
   margin-bottom: 20px;
 }
+
+.container.about {
+	padding: 25px;
+}

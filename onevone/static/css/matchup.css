@@ -37,6 +37,10 @@
     border-radius: 5px;
 }
 
+.container.contact {
+    padding: 25px;
+}
+
 .container.overview {
     margin-top: 25px;
 }

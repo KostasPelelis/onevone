@@ -766,7 +766,7 @@ class MatchContext(object):
         spell_mapping = ['Q', 'W', 'E', 'R']
 
         spell_tree = defaultdict(list)
-        for level in range(1, 19):
+        for level in range(0, 18):
             for index, spell_name in enumerate(spell_mapping):
                 if level >= len(matchup.spell_timeline):
                     spell_tree[spell_name].append(False)
